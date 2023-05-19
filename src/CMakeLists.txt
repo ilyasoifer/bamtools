@@ -162,6 +162,7 @@ add_executable(
     toolkit/bamtools_sort.cpp
     toolkit/bamtools_split.cpp
     toolkit/bamtools_stats.cpp
+    ultima/rewrite_read_groups.cpp
     ${CMAKE_CURRENT_BINARY_DIR}/bamtools_version.h
 )
 set_target_properties(

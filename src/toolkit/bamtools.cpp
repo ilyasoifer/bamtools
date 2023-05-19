@@ -26,6 +26,7 @@
 #include "bamtools_split.h"
 #include "bamtools_stats.h"
 #include "bamtools_version.h"
+#include <ultima/rewrite_read_groups.h>
 using namespace BamTools;
 
 // bamtools subtool names
@@ -42,6 +43,7 @@ static const std::string REVERT = "revert";
 static const std::string SORT = "sort";
 static const std::string SPLIT = "split";
 static const std::string STATS = "stats";
+static const std::string REWRITE_RG = "rewrite_rgs";
 
 // bamtools help/version constants
 static const std::string HELP = "help";
@@ -107,6 +109,9 @@ AbstractTool* CreateTool(const std::string& arg)
     if (arg == STATS) {
         return new StatsTool;
     }
+    if (arg == REWRITE_RG) {
+        return new RewriteReadGroupsTool;
+    }
 
     // unknown arg
     return 0;
@@ -158,6 +163,7 @@ int Help(int argc, char* argv[])
               << std::endl;
     std::cerr << "\tstats           Prints some basic statistics from input BAM file(s)"
               << std::endl;
+    std::cerr << "\trewrite_rgs      Rewrites read groups" << std::endl;
     std::cerr << std::endl;
     std::cerr << "See 'bamtools help COMMAND' for more information on a specific command."
               << std::endl;
